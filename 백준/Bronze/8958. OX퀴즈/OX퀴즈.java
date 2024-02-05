@@ -14,21 +14,22 @@ public class Main {
 		for(int i = 0; i < n; i++) {
 			String ox = br.readLine();
 			int length = ox.length();
-			int[][] score = new int[n][length];
+			int[] score = new int[length];
+			int sum = 0;
 			
 			for(int j = 0; j < length; j++) {
 				if(j == 0) {
-					 if(ox.charAt(0) == 'O') score[i][0] = 1;
-					 else score[i][0] = 0;
+					 if(ox.charAt(0) == 'O') score[0] = 1;
+					 else score[0] = 0;
 				}
 				else {
-					if(ox.charAt(j) == 'O') score[i][j] = score[i][j-1] + 1;
-					else score[i][j] = 0;
+					if(ox.charAt(j) == 'O') score[j] = score[j-1] + 1;
+					else score[j] = 0;
 				}
 			}
-			int sum = 0;
+			
 			for(int j = 0; j < length; j++) {
-				sum += score[i][j];
+				sum += score[j];
 			}
 			bw.write(sum + "\n");
 		}
