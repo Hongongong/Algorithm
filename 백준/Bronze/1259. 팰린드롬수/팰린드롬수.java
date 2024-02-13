@@ -8,12 +8,13 @@ public class Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-		String rom = br.readLine();
-		int length = 0;
-
-		while(!rom.equals("0")) {
-			length = rom.length();
+		while(true) {
+			String rom = br.readLine();
+			int length = rom.length();
 			int j = 0;
+
+			if(rom.equals("0")) break;
+
 			for(int i = length - 1; i >= length / 2; i--) {
 				if(rom.charAt(i) != rom.charAt(j)) {
 					bw.write("no\n");
@@ -22,7 +23,6 @@ public class Main {
 				j++;
 				if(i == length / 2) bw.write("yes\n");
 			}
-			rom = br.readLine();
 		}
 
 		// 출력버퍼를 화면에 출력
