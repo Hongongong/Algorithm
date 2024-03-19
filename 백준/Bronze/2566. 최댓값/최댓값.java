@@ -6,14 +6,14 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		
 		int[][] arr = new int[9][9]; // 9x9 배열
-		int max = 0;
+		int max = -1;
 		int max_Row = 0;
 		int max_Col = 0;
 		
 		for(int i = 0; i < 9; i++) {
 			for(int j = 0; j < 9; j++) {
 				arr[i][j] = sc.nextInt();
-				if(arr[i][j] >= max) {
+				if(arr[i][j] > max) {
 					max = arr[i][j];
 					max_Row = i + 1;
 					max_Col = j + 1;
