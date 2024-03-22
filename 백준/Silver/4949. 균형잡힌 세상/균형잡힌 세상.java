@@ -16,7 +16,8 @@ public class Main {
 			if (str.equals("."))
 				break;
 			else {
-				System.out.println(isBalanced(str) ? "yes" : "no");
+				String answer = isBalanced(str) ? "yes" : "no";
+				bw.write(answer + "\n");
 			}
 		}
 
