@@ -1,9 +1,12 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
 public class Main {
+	static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -27,10 +30,13 @@ public class Main {
 			makeCombination(s, comb, 0, 0, k);
 
 			// 각 테스트 케이스 사이에 빈 줄 출력
-			System.out.println();
+			bw.newLine();
 		}
 
+		bw.flush();
+
 		br.close();
+		bw.close();
 	}
 
 	// 재귀를 사용해서 조합을 생성하는 메서드
@@ -39,9 +45,11 @@ public class Main {
 		// base case : comb 조합의 길이가 6이 되면 출력하고 return
 		if (comb_num == 6) {
 			for (int i = 0; i < 6; i++) {
-				System.out.print(comb[i] + " ");
+				// System.out.print(comb[i] + " ");
+				String str = comb[i] + " ";
+				bw.write(str);
 			}
-			System.out.println();
+			bw.newLine();
 			return;
 		}
 
