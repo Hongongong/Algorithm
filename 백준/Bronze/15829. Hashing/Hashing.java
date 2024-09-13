@@ -2,6 +2,9 @@ import java.io.*;
 import java.util.StringTokenizer;
 
 public class Main {
+	
+	static final int MOD = 1_234_567_891;
+	static final int R = 31;
 
 	public static void main(String[] args) throws IOException {
 
@@ -14,9 +17,12 @@ public class Main {
 		
 		char[] alpabet = new char[]{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u' , 'v', 'w', 'x', 'y', 'z'};
 		
-		int hash = 0;
+		long hash = 0;
+		long mul = 1;
 		for(int i = 0; i < l; i++) {
-			hash += (s.charAt(i) - 'a' + 1) * Math.pow(31, i);
+			hash += (s.charAt(i) - 'a' + 1) * mul % MOD;
+			hash %= MOD;
+			mul = mul * R % MOD;
 		}
 		
 		sb.append(hash);
